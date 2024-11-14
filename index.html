@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              "button-white": "#a5a5a5",
+              "button-gray": "#333",
+              "button-golden": "#f89b10",
+            },
+          },
+        },
+      };
+    </script>
+    <script defer src="/script.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="w-[100vw] min-[501px]:h-[100vh] max-[500px]:h-[93.5vh] flex justify-center items-center bg-gradient-to-r from-[#000000] to-[#434343]">
+      <div class="min-[501px]:w-[320px] min-[501px]:h-[620px] max-[500px]:w-full max-[500px]:h-[100%] bg-[#111] flex flex-col justify-end p-4 shadow-lg">
+        <p
+          id="history_box"
+          class="text-white mb-4 text-end text-2xl font-light overflow-x-auto overflow-y-hidden"
+        ></p>
+        <p
+          id="input_box"
+          class="text-white mb-4 text-end min-[501px]:text-6xl max-[500px]:text-8xl font-light overflow-x-auto overflow-y-hidden"
+        >0</p>
+        <div class="grid grid-cols-4 text-white gap-2 text-xl">
+          <div
+            data-button="AC"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-white text-black"
+          >
+            <span>AC</span>
+          </div>
+          <div
+            data-button="("
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-white text-black"
+          >
+            <span>(</span>
+          </div>
+          <div
+            data-button=")"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-white text-black"
+          >
+            <span>)</span>
+          </div>
+          <div
+            data-button="CE"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-golden text-white"
+          >
+            <span>CE</span>
+          </div>
+
+          <div
+            data-button="7"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>7</span>
+          </div>
+          <div
+            data-button="8"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>8</span>
+          </div>
+          <div
+            data-button="9"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>9</span>
+          </div>
+          <div
+            data-button="/"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-golden text-white"
+          >
+            <span>/</span>
+          </div>
+
+          <div
+            data-button="4"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>4</span>
+          </div>
+          <div
+            data-button="5"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>5</span>
+          </div>
+          <div
+            data-button="6"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>6</span>
+          </div>
+          <div
+            data-button="*"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-golden text-white"
+          >
+            <span>X</span>
+          </div>
+
+          <div
+            data-button="1"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>1</span>
+          </div>
+          <div
+            data-button="2"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>2</span>
+          </div>
+          <div
+            data-button="3"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>3</span>
+          </div>
+          <div
+            data-button="-"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-golden text-white"
+          >
+            <span>-</span>
+          </div>
+
+          <div
+            data-button="0"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>0</span>
+          </div>
+          <div
+            data-button="."
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-gray text-white"
+          >
+            <span>.</span>
+          </div>
+          <div
+            data-button="="
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-white text-black"
+          >
+            <span>=</span>
+          </div>
+          <div
+            data-button="+"
+            class="min-[501px]:w-16 min-[501px]:h-16 max-[500px]:h-20 max-[500px]:w-20 cursor-pointer rounded-full flex justify-center items-center bg-button-golden text-white"
+          >
+            <span>+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
